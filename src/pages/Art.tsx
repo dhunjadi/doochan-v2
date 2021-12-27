@@ -1,14 +1,20 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { itemsState } from "../store/reducers/itemReducer";
+import { StoreState } from "../store/reducers/rootReducer";
 
 const Art: FC = () => {
-  const items = useSelector<itemsState, itemsState["items"]>(
-    (state) => state.items
+  const items = useSelector((state: StoreState) => state.itemReducer.items);
+
+  const filtered = items.filter((item) => {
+    return item.section === "Art";
+  });
+
+  return (
+    <>
+      {filtered.map((item) => {
+        return <p key={item.id}>{item.title}</p>;
+      })}
+    </>
   );
-
-  console.log(items); // undefined
-  return <div>Art</div>;
 };
-
 export default Art;
