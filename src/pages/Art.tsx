@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
+import ItemCard from "../components/ItemCard";
 import { StoreState } from "../store/reducers/rootReducer";
 
 const Art: FC = () => {
@@ -10,11 +11,11 @@ const Art: FC = () => {
   });
 
   return (
-    <>
+    <div className="item-container">
       {filtered.map((item) => {
-        return <p key={item.id}>{item.title}</p>;
+        return <ItemCard key={item.id} item={item} />;
       })}
-    </>
+    </div>
   );
 };
 export default Art;
