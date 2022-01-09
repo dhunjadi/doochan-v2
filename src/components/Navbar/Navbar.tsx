@@ -4,10 +4,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import NavbarList from "./NavbarList";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { StoreState } from "../../store/reducers/rootReducer";
 
 const Navbar: FC = () => {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
+  const cart = useSelector((state: StoreState) => state.cartReducer.cart);
+  console.log(cart);
+
   return (
     <header>
       <nav>
@@ -38,6 +43,7 @@ const Navbar: FC = () => {
               </li>
             );
           })}
+          <li>Cart ({cart.length})</li>
         </ul>
       </nav>
     </header>
