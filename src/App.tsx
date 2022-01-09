@@ -11,6 +11,7 @@ import Furniture from "./pages/Furniture";
 import Jewellery from "./pages/Jewellery";
 import Toys from "./pages/Toys";
 import Page404 from "./pages/Page404";
+import ItemDetails from "./pages/ItemDetails";
 
 const App: FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: FC = () => {
           <Route path="/furniture" element={<Furniture />} />
           <Route path="/jewellery" element={<Jewellery />} />
           <Route path="/toys" element={<Toys />} />
+          <Route path="/item/:id" element={<ItemDetails />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
