@@ -1,10 +1,13 @@
 import { combineReducers } from "redux";
-import { itemReducer, itemsState } from "./itemReducer";
+import { itemReducer, itemReducerState } from "./itemReducer";
+import { cartReducer, cartReducerState } from "./cartReducer";
 
 export interface StoreState {
-  itemReducer: itemsState;
+  itemReducer: itemReducerState;
+  cartReducer: cartReducerState;
 }
 
 export const rootReducer = combineReducers({
   itemReducer,
+  cartReducer,
 });
