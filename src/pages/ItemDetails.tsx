@@ -8,23 +8,25 @@ const ItemDetails: FC = () => {
   const items = useSelector((state: StoreState) => state.itemReducer.items);
   const { id } = useParams();
   const item = items.find((element) => element.id === id);
-  const [picture] = useState(item?.img[0].img);
+  const [picture, setPicture] = useState(item?.img[0].img);
   const dispatch = useDispatch();
 
   const handleAddToCart = (item: any) => {
     dispatch(AddToCart(item));
   };
 
+  const handlePictureClick = (e: any) => {
+    setPicture(e.target.currentSrc);
+  };
+
   const displayMorePictures = item?.img.map((picture) => {
     return (
-      <div key={picture.img} className="more-pictures">
-        <img
-          /* onClick={handlePictureClick} */
-          className="more-pictures-pic"
-          src={picture.img}
-          alt={picture.img}
-        />
-      </div>
+      <img
+        onClick={handlePictureClick}
+        className="more-pictures-pic"
+        src={picture.img}
+        alt={picture.img}
+      />
     );
   });
 
@@ -42,10 +44,7 @@ const ItemDetails: FC = () => {
           </div>
           <p className="title">{item?.title}</p>
           <p className="description">{item?.description}</p>
-          <button
-            className="add-to-cart-btn-item"
-            onClick={() => handleAddToCart(item)}
-          >
+          <button className="add-to-cart" onClick={() => handleAddToCart(item)}>
             Add To Cart
           </button>
         </div>

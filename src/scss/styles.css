@@ -233,4 +233,115 @@ nav {
   width: 100%;
   margin-bottom: 10px;
 }
+
+#selected-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  #selected-item {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #selected-item .pictures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#selected-item .pictures img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  #selected-item .pictures img {
+    max-height: 400px;
+    max-width: 400px;
+  }
+}
+
+#selected-item .pictures div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: auto;
+  width: 100vw;
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+  #selected-item .pictures div {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 50vw;
+  }
+}
+
+#selected-item .pictures div img {
+  width: 100px;
+  height: 100px;
+}
+
+#selected-item .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#selected-item .details .title {
+  font-weight: 700;
+  padding: 0 20px;
+}
+
+#selected-item .details .description {
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+#selected-item .add-to-cart {
+  background-color: #0187ff;
+  color: white;
+  border-radius: 4px;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.back-to-results {
+  padding: 20px;
+}
 /*# sourceMappingURL=styles.css.map */
