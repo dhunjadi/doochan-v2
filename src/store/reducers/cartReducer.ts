@@ -1,7 +1,18 @@
-import { AddToCart } from "../actions/cartActions";
+import { ADD_TO_CART } from "../actions/cartActions";
+import { AnyAction } from "redux";
 
-export interface cartState {
-  cart: object[];
+export interface cartReducerState {
+  cart: {
+    id: string;
+    title: string;
+    description: string;
+    price: number;
+    section: string;
+    qty: number;
+    img: {
+      img: string;
+    }[];
+  }[];
 }
 
 const initialState = {
@@ -9,12 +20,12 @@ const initialState = {
 };
 
 export const cartReducer = (
-  state: cartState = initialState,
-  action: { type: any; payload: object[] }
-) => {
+  state: cartReducerState = initialState,
+  action: AnyAction
+): cartReducerState => {
   switch (action.type) {
-    case AddToCart:
-      return { ...state.cart, items: action.payload };
+    case ADD_TO_CART:
+      return { ...state.cart, cart: [...state.cart, { ...action.payload }] };
     default:
       return state;
   }

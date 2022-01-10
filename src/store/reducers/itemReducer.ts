@@ -1,4 +1,4 @@
-export interface itemsState {
+export interface itemReducerState {
   items: {
     id: string;
     title: string;
@@ -1784,6 +1784,6 @@ const initialState = {
   ],
 };
 
-export const itemReducer = (state: itemsState = initialState) => {
+export const itemReducer = (state: itemReducerState = initialState) => {
   return state;
 };
