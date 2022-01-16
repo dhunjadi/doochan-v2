@@ -10,7 +10,9 @@ import { StoreState } from "../../store/reducers/rootReducer";
 const Navbar: FC = () => {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
-  const cart = useSelector((state: StoreState) => state.cartReducer.cart);
+  const cart = useSelector(
+    (state: StoreState) => state.cartReducer.ItemsInCart
+  );
   console.log(cart);
 
   return (

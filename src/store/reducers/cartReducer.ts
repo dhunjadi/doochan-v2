@@ -1,22 +1,14 @@
-import { ADD_TO_CART } from "../actions/cartActions";
+import cartTypes from "../types/cartTypes";
 import { AnyAction } from "redux";
+import { IItem } from "./itemReducer";
+import { handleAddToCart } from "../utils/cartUtils";
 
 export interface cartReducerState {
-  cart: {
-    id: string;
-    title: string;
-    description: string;
-    price: number;
-    section: string;
-    qty: number;
-    img: {
-      img: string;
-    }[];
-  }[];
+  ItemsInCart: IItem[];
 }
 
 const initialState = {
-  cart: [],
+  ItemsInCart: [],
 };
 
 export const cartReducer = (
@@ -24,8 +16,14 @@ export const cartReducer = (
   action: AnyAction
 ): cartReducerState => {
   switch (action.type) {
-    case ADD_TO_CART:
-      return { ...state.cart, cart: [...state.cart, { ...action.payload }] };
+    case cartTypes.ADD_TO_CART:
+      return {
+        ...state,
+        ItemsInCart: handleAddToCart({
+          prevCartItems: state.ItemsInCart,
+          itemToCart: action.payload,
+        }),
+      };
     default:
       return state;
   }

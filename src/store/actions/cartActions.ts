@@ -1,10 +1,9 @@
-import { itemReducerState } from "../reducers/itemReducer";
+import { IItem } from "../reducers/itemReducer";
+import cartTypes from "../types/cartTypes";
 
-export const ADD_TO_CART = "ADD_TO_CART";
-
-export function AddToCart(itemToCart: itemReducerState) {
+export function AddToCart(itemToCart: IItem) {
   return {
-    type: "ADD_TO_CART",
+    type: cartTypes.ADD_TO_CART,
     payload: itemToCart,
   };
 }

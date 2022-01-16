@@ -1,15 +1,17 @@
-export interface itemReducerState {
-  items: {
-    id: string;
-    title: string;
-    description: string;
-    price: number;
-    section: string;
-    qty: number;
-    img: {
-      img: string;
-    }[];
+export interface IItem {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  section: string;
+  qty: number;
+  img: {
+    img: string;
   }[];
+}
+
+export interface itemReducerState {
+  items: IItem[];
 }
 
 const initialState = {
