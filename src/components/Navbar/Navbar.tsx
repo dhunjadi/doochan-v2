@@ -45,7 +45,16 @@ const Navbar: FC = () => {
               </li>
             );
           })}
-          <li>Cart ({cart.length})</li>
+          <li>
+            <NavLink
+              to={"/cart"}
+              onClick={() => {
+                setClicked(false);
+              }}
+            >
+              Cart ({cart.reduce((qty, cartItem) => qty + cartItem.qty, 0)})
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

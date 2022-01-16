@@ -12,6 +12,7 @@ import Jewellery from "./pages/Jewellery";
 import Toys from "./pages/Toys";
 import Page404 from "./pages/Page404";
 import ItemDetails from "./pages/ItemDetails";
+import Cart from "./pages/Cart";
 
 const App: FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: FC = () => {
           <Route path="/jewellery" element={<Jewellery />} />
           <Route path="/toys" element={<Toys />} />
           <Route path="/item/:id" element={<ItemDetails />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
