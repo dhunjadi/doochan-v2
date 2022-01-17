@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
+import CartItem from "../components/CartItem";
 import { StoreState } from "../store/reducers/rootReducer";
 
 const Cart: FC = () => {
@@ -16,13 +17,8 @@ const Cart: FC = () => {
       </div>
 
       <div className="item-container">
-        {cartItems.map((item) => {
-          return (
-            <p>
-              title: {item.title}, price: ${item.price}, qty: {item.qty} = $
-              {(item.price * item.qty).toFixed(2)}
-            </p>
-          );
+        {cartItems.map((cartItem) => {
+          return <CartItem key={cartItem.id} cartItem={cartItem} />;
         })}
       </div>
     </div>
