@@ -8,22 +8,26 @@ const Cart: FC = () => {
     (state: StoreState) => state.cartReducer.ItemsInCart
   );
 
+  let cartTotal = cartItems.reduce(
+    (qty, cartItem) => qty + cartItem.qty * cartItem.price,
+    0
+  );
+
   return cartItems.length > 0 ? (
     <div className="cart">
-      <h1 className="cart-total">Total: $</h1>
-      <div className="cart-btns">
-        <button className="clear-btn">Clear Cart</button>
-        <button className="checkout-btn">Proceed to Checkout</button>
-      </div>
-
       <div className="item-container">
         {cartItems.map((cartItem) => {
           return <CartItem key={cartItem.id} cartItem={cartItem} />;
         })}
       </div>
+      <span className="cart-total">Total: ${cartTotal}</span>
+      <div className="cart-btns">
+        <button className="clear-btn">Clear Cart</button>
+        <button className="checkout-btn">Proceed to Checkout</button>
+      </div>
     </div>
   ) : (
-    <h1>Your cart is empty</h1>
+    <p>Your cart is empty</p>
   );
 };
 

@@ -1,20 +1,32 @@
 import React, { FC } from "react";
+import { useDispatch } from "react-redux";
+import {
+  AddToCart,
+  removeFromCart,
+  removeOne,
+} from "../store/actions/cartActions";
+import { IItem } from "../store/reducers/itemReducer";
 
 interface CartItemProps {
-  cartItem: {
-    title: string;
-    description: string;
-    price: number;
-    id: string;
-    qty: number;
-    img: {
-      img: string;
-    }[];
-  };
+  cartItem: IItem;
 }
 
 const CartItem: FC<CartItemProps> = ({ cartItem }) => {
   const { title, description, price, qty, img } = cartItem;
+  const dispatch = useDispatch();
+
+  const handleAddOneItem = (cartItem: IItem) => {
+    dispatch(AddToCart(cartItem));
+  };
+
+  const handleRemoveOneItem = (cartItem: IItem) => {
+    dispatch(removeOne(cartItem));
+  };
+
+  const handleRemoveItemFromCart = (cartItem: IItem) => {
+    dispatch(removeFromCart(cartItem));
+  };
+
   return (
     <>
       <div className="cart-item">
@@ -34,17 +46,19 @@ const CartItem: FC<CartItemProps> = ({ cartItem }) => {
         </div>
 
         <div className="qty-input">
-          <button>-</button>
+          <button onClick={() => handleRemoveOneItem(cartItem)}>-</button>
           <span>{qty}</span>
-          <button>+</button>
+          <button onClick={() => handleAddOneItem(cartItem)}>+</button>
         </div>
 
         <div className="item-total">
-          <span>$ ITEM TOTAL</span>
+          <span>${price * qty}</span>
         </div>
 
         <div className="remove-btn">
-          <button>Remove</button>
+          <button onClick={() => handleRemoveItemFromCart(cartItem)}>
+            Remove
+          </button>
         </div>
       </div>
       <hr />

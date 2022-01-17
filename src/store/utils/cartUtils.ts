@@ -26,3 +26,34 @@ export const handleAddToCart = ({ prevCartItems, itemToCart }: any) => {
     },
   ];
 };
+
+export const handleRemoveOne = ({ prevCartItems, itemToRemove }: any) => {
+  const existingCartItem = prevCartItems.find(
+    (cartItem: IItem) => cartItem.id === itemToRemove.id
+  );
+
+  if (existingCartItem.qty === 1) {
+    return prevCartItems.filter(
+      (cartItem: IItem) => cartItem.id !== existingCartItem.id
+    );
+  }
+
+  return prevCartItems.map((cartItem: IItem) =>
+    cartItem.id === existingCartItem.id
+      ? {
+          ...cartItem,
+          qty: cartItem.qty - 1,
+        }
+      : cartItem
+  );
+};
+
+export const handleRemoveFromCart = ({ prevCartItems, itemToRemove }: any) => {
+  const clickedItem = prevCartItems.find(
+    (cartItem: IItem) => cartItem.id === itemToRemove.id
+  );
+
+  return prevCartItems.filter(
+    (cartItem: IItem) => cartItem.id !== clickedItem.id
+  );
+};

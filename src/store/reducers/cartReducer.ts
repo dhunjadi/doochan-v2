@@ -1,7 +1,11 @@
 import cartTypes from "../types/cartTypes";
 import { AnyAction } from "redux";
 import { IItem } from "./itemReducer";
-import { handleAddToCart } from "../utils/cartUtils";
+import {
+  handleAddToCart,
+  handleRemoveFromCart,
+  handleRemoveOne,
+} from "../utils/cartUtils";
 
 export interface cartReducerState {
   ItemsInCart: IItem[];
@@ -22,6 +26,22 @@ export const cartReducer = (
         ItemsInCart: handleAddToCart({
           prevCartItems: state.ItemsInCart,
           itemToCart: action.payload,
+        }),
+      };
+    case cartTypes.REMOVE_ONE:
+      return {
+        ...state,
+        ItemsInCart: handleRemoveOne({
+          prevCartItems: state.ItemsInCart,
+          itemToRemove: action.payload,
+        }),
+      };
+    case cartTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        ItemsInCart: handleRemoveFromCart({
+          prevCartItems: state.ItemsInCart,
+          itemToRemove: action.payload,
         }),
       };
     default:

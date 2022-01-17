@@ -7,3 +7,17 @@ export function AddToCart(itemToCart: IItem) {
     payload: itemToCart,
   };
 }
+
+export function removeOne(itemInCart: IItem) {
+  return {
+    type: cartTypes.REMOVE_ONE,
+    payload: itemInCart,
+  };
+}
+
+export function removeFromCart(itemInCart: IItem) {
+  return {
+    type: cartTypes.REMOVE_FROM_CART,
+    payload: itemInCart,
+  };
+}

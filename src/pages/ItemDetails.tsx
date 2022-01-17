@@ -22,6 +22,7 @@ const ItemDetails: FC = () => {
   const displayMorePictures = item?.img.map((picture) => {
     return (
       <img
+        key={picture.img}
         onClick={handlePictureClick}
         className="more-pictures-pic"
         src={picture.img}
