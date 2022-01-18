@@ -44,6 +44,8 @@ export const cartReducer = (
           itemToRemove: action.payload,
         }),
       };
+    case cartTypes.CLEAR_CART:
+      return initialState;
     default:
       return state;
   }

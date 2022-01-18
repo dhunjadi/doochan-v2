@@ -21,3 +21,9 @@ export function removeFromCart(itemInCart: IItem) {
     payload: itemInCart,
   };
 }
+
+export function clearCart() {
+  return {
+    type: cartTypes.CLEAR_CART,
+  };
+}

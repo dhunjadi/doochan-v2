@@ -7,6 +7,10 @@
           box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 nav {
   background-color: #0187ff;
   padding: 20px;
@@ -361,7 +365,6 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px;
   border-bottom: 2px solid #333;
 }
 
@@ -561,5 +564,9 @@ nav {
   background-color: rgba(218, 0, 0, 0.3);
   color: #da0000;
   border: 2px solid #da0000;
+}
+
+.cart-total {
+  font-weight: 700;
 }
 /*# sourceMappingURL=styles.css.map */
