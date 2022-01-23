@@ -8,7 +8,7 @@ const ItemDetails: FC = () => {
   const items = useSelector((state: StoreState) => state.itemReducer.items);
   const { id } = useParams();
   const item = items.find((element) => element.id === id);
-  const [picture, setPicture] = useState(item?.img[0].img);
+  const [picture, setPicture] = useState(item?.img[0]);
   const dispatch = useDispatch();
 
   const handleAddToCart = (item: any) => {
@@ -22,11 +22,11 @@ const ItemDetails: FC = () => {
   const displayMorePictures = item?.img.map((picture) => {
     return (
       <img
-        key={picture.img}
+        key={picture}
         onClick={handlePictureClick}
         className="more-pictures-pic"
-        src={picture.img}
-        alt={picture.img}
+        src={picture}
+        alt={picture}
       />
     );
   });

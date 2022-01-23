@@ -10,6 +10,8 @@ const Art: FC = () => {
     return item.section === "Art";
   });
 
+  console.log(items);
+
   return (
     <div className="item-container">
       {filtered.map((item) => {

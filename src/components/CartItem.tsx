@@ -30,7 +30,7 @@ const CartItem: FC<CartItemProps> = ({ cartItem }) => {
   return (
     <>
       <div className="cart-item">
-        <img src={img[0].img} alt="" />
+        <img src={img[0]} alt="" />
         <div className="details">
           <div className="title">
             <h3>{title}</h3>

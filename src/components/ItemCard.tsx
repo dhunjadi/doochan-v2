@@ -1,16 +1,9 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import { IItem } from "../store/reducers/itemReducer";
 
 interface Props {
-  item: {
-    title: string;
-    description: string;
-    price: number;
-    id: string;
-    img: {
-      img: string;
-    }[];
-  };
+  item: IItem;
 }
 
 const ItemCard: FC<Props> = ({ item }) => {
@@ -19,7 +12,7 @@ const ItemCard: FC<Props> = ({ item }) => {
   return (
     <article>
       <Link to={`/item/${id}`}>
-        <img className="item-img" src={img[0].img} alt="" />
+        <img className="item-img" src={img[0]} alt="" />
         <div className="item-title">
           <span>{title}</span>
         </div>
